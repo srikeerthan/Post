@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+  <title>MyProfile</title>
+    <link rel="icon" href="media/sourceImages/title.png" type="image/png"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+    .posts
+    {
+        background-color: white;
+    }
+      body
+      {
+          background-color:gainsboro ;
+      }
+      n
+      {
+          color: blue;
+          font-family: "Lucida Calligraphy";
+      }
+      z
+      {
+          color:#5f5f5f;
+          font-family: "Bookman Old Style";
+      }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">PostGram!</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="create">Upload</a></li>
+        <li class="active"><a href="posts">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Options <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="myprofile"><span class="glyphicon glyphicon-user"></span>MyProfile</a></li>
+          <li><a href="Logout"><span class="glyphicon glyphicon-log-out"></span>logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="col-sm-3"></div>
+<div class="container-fluid col-sm-6" style="margin-top: 60px;">
+    {% for x in post_list %}
+        <div class="posts">
+        <div class="dropdown" style="padding: 7px;">
+{#        <div class="container" style="padding: 10px;">#}
+
+{#            <z><span class="glyphicon glyphicon-user"></span> Posted By <n> {{ x.author }}</n></z><br/>#}
+            <z><span class="glyphicon glyphicon-time"></span> Posted on  <n>{{ x.date_created }}</n>
+
+    <button class="btn btn-default dropdown-toggle btn-xs" type="button" data-toggle="dropdown" style="margin-left: 343px;">
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li><a href="posts/{{ x.id }}/update">Update</a></li>
+      <li><a href="posts/{{ x.id }}/delete">Dlete</a></li>
+      <li class="divider"></li>
+      <li class="disabled"><a href="#">About Us</a></li>
+    </ul>
+{#  </div>#}
+                </z>
+                </div>
+            <div class="container">
+            <p style="margin-left: 15px;color:#444444;font-family: 'Microsoft JhengHei UI';">{{ x.caption}}</p>
+            <h1><img class="img-rounde img-responsive" src="{{ x.photo.url }}" style="width:565px; height:465px;"/></h1>
+            <a href="posts/{{ x.id }}/like"><img src="media/sourceImages/like.jpg" alt="like"></a>
+            <button type="button" ><a href="posts/{{ x.id }}/likesList">likesList</a></button>
+        </div>
+        </div>
+        <div style="padding:7px;"></div>
+    {% endfor %}
+</div>
+<div class="col-sm-3"></div>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load staticfiles %}
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Login Form</title>
+    <link rel="icon" href="media/sourceImages/title.png" type="image/png"/>
+
+	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/form-login.css' %}">
+    <style type="text/css">
+        z
+        {
+            font-weight: 100;
+            margin-left: 55px;
+        }
+    </style>
+
+</head>
+
+       <!-- You only need this form and the form-login.css -->
+    <header>
+		<h1>Welcome To PostGram!</h1>
+        <h3 style="margin-left:800px;color:whitesmoke;">New to PostGram?<a href="register" class="form-create-an-account">Create an account here! &rarr;</a></h3>
+    </header>
+
+<body>
+    <div class="main-content" style="margin-top:50px;">
+
+        <form class="form-login" method="post" action=".">
+            {% csrf_token %}
+            <div class="form-log-in-with-email">
+                <div class="form-white-background">
+                    <div class="form-title-row">
+                        <h1>Log in</h1>
+                    </div>
+                    <div class="form-row">
+                        {% if form.errors %}
+                            <z><img src="media/sourceImages/cross.png"/> Your username and password didn't match</z>
+                        {% endif %}
+
+                    </div>
+                    <div class="form-row">
+                        <label for="id_username">
+                            <span>UserName</span>
+                            {{ form.username }}
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label for="id_password">
+                            <span>Password</span>
+                            {{ form.password }}
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <button type="submit">Log in</button>
+                        <input type="hidden" name="next" value="/posts" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

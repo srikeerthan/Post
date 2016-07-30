@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PostGram</title>
+    <link rel="icon" href="../../media/sourceImages/title.png" type="image/png"/>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<center>
+<h1 style="font-family: 'Microsoft JhengHei UI';">Liked By:</h1>
+<div class="col-sm-3"></div>
+<div class="col-md-6" style="background-color: snow;">
+{% for l in like_list %}
+    <ul class="list-group">
+  <li class="list-group-item list-group-item-info" style="font-size: 30px;">{{ l.user }}</li>
+</ul>
+{% endfor %}
+</div>
+<div class="col-md-3"></div>
+</center>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete_Post</title>
+    <link rel="icon" href="media/sourceImages/titile.png" type="image/png"/>
+</head>
+<body>
+<form method="post">
+     {% csrf_token %}
+    <p>are you sure you want to delete?</p>
+    <input type="submit" value="submit"/>
+</form>
+</body>
+</html>
